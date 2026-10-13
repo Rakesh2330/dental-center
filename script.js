@@ -1,5 +1,5 @@
 /**
- * Dr. Ahalya's Dento Neuro Clinic - Restructured Interactive Experience
+ * Dr. Ahalya's Dento Neuro Center - Restructured Interactive Experience
  * Pure Vanilla JavaScript - High Performance & Accessibility
  */
 
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // --- 3. Live Clinic Status Indicator ---
+  // --- 3. Live Center Status Indicator ---
   const liveStatusText = document.getElementById('liveStatusText');
   function updateLiveStatus() {
     if (!liveStatusText) return;
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (timeVal >= 16 && timeVal < 20) {
         liveStatusText.textContent = "Evening OPD Active Now | Consultations In Progress (Until 8:00 PM)";
       } else {
-        liveStatusText.textContent = "Clinic OPD Closed for Tonight | Resumes Tomorrow at 10:00 AM in Saraswathipuram";
+        liveStatusText.textContent = "Center OPD Closed for Tonight | Resumes Tomorrow at 10:00 AM in Saraswathipuram";
       }
     }
   }
@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
   galleryCards.forEach(card => {
     card.addEventListener('click', () => {
       const img = card.querySelector('img');
-      const title = card.querySelector('.gallery-caption')?.textContent || 'Clinic Facility';
+      const title = card.querySelector('.gallery-caption')?.textContent || 'Center Facility';
       if (img && lightboxModal && lightboxImg) {
         lightboxImg.src = img.src;
         if (lightboxTitle) lightboxTitle.textContent = title;
@@ -562,7 +562,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('ticketDateTime').textContent = `${date} | ${slot}`;
 
     const waText = encodeURIComponent(
-      `Hello Dr. Ahalya's Dento Neuro Clinic, I have scheduled a consultation.\n\n` +
+      `Hello Dr. Ahalya's Dento Neuro Center, I have scheduled a consultation.\n\n` +
       `Appointment Pass ID: ${token}\n` +
       `Patient Name: ${fullName}\n` +
       `Phone: ${phone}\n` +
@@ -602,17 +602,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- 10. Copy Address & Toast System ---
   const copyAddressBtn = document.getElementById('copyAddressBtn');
-  const clinicAddressText = "165/1, Sahukar Chennaiah Road, Opposite Brahmasthana Kalyan Mantapa, Saraswathipuram, Mysuru, Karnataka – 570009";
+  const centerAddressText = "165/1, Sahukar Chennaiah Road, Opposite Brahmasthana Kalyan Mantapa, Saraswathipuram, Mysuru, Karnataka – 570009";
 
   copyAddressBtn?.addEventListener('click', () => {
     if (navigator.clipboard) {
-      navigator.clipboard.writeText(clinicAddressText).then(() => {
+      navigator.clipboard.writeText(centerAddressText).then(() => {
         showToast("Address copied to clipboard!");
       }).catch(() => {
-        fallbackCopy(clinicAddressText);
+        fallbackCopy(centerAddressText);
       });
     } else {
-      fallbackCopy(clinicAddressText);
+      fallbackCopy(centerAddressText);
     }
   });
 
