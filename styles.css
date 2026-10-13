@@ -3315,14 +3315,18 @@ textarea.form-control {
    Mobile & Small Screen Optimizations (<640px)
    ========================================================================== */
 @media (max-width: 640px) {
-  /* Prevent content being obscured by bottom bar */
+  /* Prevent content being obscured by bottom bar, with iPhone safe-area padding */
   body {
-    padding-bottom: 56px;
+    padding-bottom: calc(70px + env(safe-area-inset-bottom, 0px));
   }
 
   /* Container Breathing Room */
   .container {
     padding: 0 14px;
+  }
+
+  .site-header {
+    padding: 8px 0;
   }
 
   .site-header .container {
@@ -3331,16 +3335,18 @@ textarea.form-control {
 
   /* Compact Scaled Brand Header */
   .brand-logo-group {
-    gap: 7px;
+    gap: 8px;
   }
 
   .brand-emblem-wrap {
     width: 36px;
     height: 36px;
+    border-radius: var(--radius-sm);
   }
 
   .brand-title {
     font-size: 0.94rem;
+    line-height: 1.15;
   }
 
   .brand-subtitle {
@@ -3370,77 +3376,81 @@ textarea.form-control {
 
   /* Live OPD Notice Bar */
   .top-notice-bar {
-    padding: 5px 10px;
+    padding: 4px 10px;
   }
 
   .top-notice-text {
-    font-size: 0.72rem;
-    line-height: 1.35;
+    font-size: 0.7rem;
+    line-height: 1.25;
+    letter-spacing: 0.1px;
   }
 
   /* Sections Spacing */
   .section {
-    padding: 44px 0;
+    padding: 38px 0;
   }
 
   .section-header {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .section-tag {
-    font-size: 0.7rem;
-    padding: 4px 12px;
-    margin-bottom: 10px;
+    font-size: 0.68rem;
+    padding: 3px 10px;
+    margin-bottom: 8px;
   }
 
   .section-title {
-    font-size: 1.52rem;
-    line-height: 1.25;
-    margin-bottom: 10px;
+    font-size: 1.45rem;
+    line-height: 1.24;
+    margin-bottom: 8px;
   }
 
   .section-desc {
-    font-size: 0.85rem;
-    line-height: 1.55;
+    font-size: 0.84rem;
+    line-height: 1.5;
   }
 
   /* Hero Section */
   .hero-section {
-    padding: 24px 0 20px;
+    padding: 18px 0 24px;
   }
 
   .hero-tagline {
-    font-size: 0.72rem;
-    padding: 4px 10px;
-    margin-bottom: 10px;
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    margin-bottom: 8px;
   }
 
   .hero-doctor-badge {
-    padding: 8px 12px;
-    margin-bottom: 14px;
+    padding: 6px 10px;
+    margin-bottom: 12px;
     width: 100%;
     box-sizing: border-box;
+    border-radius: var(--radius-sm);
   }
 
   .hero-doctor-badge h3 {
-    font-size: 0.84rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
   }
 
   .hero-doctor-badge p {
-    font-size: 0.72rem;
-    line-height: 1.35;
+    font-size: 0.68rem;
+    line-height: 1.3;
   }
 
   .hero-title {
-    font-size: 1.68rem;
+    font-size: 1.55rem;
     line-height: 1.22;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
   .hero-description {
-    font-size: 0.88rem;
-    line-height: 1.55;
-    margin-bottom: 18px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
   }
 
   /* Hero Mobile CTA arrangement */
@@ -3448,15 +3458,16 @@ textarea.form-control {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-bottom: 22px;
+    margin-bottom: 16px;
     width: 100%;
   }
 
   .hero-cta-group .hero-btn-main {
     width: 100%;
     justify-content: center;
-    padding: 10px 18px;
-    font-size: 0.88rem;
+    padding: 11px 18px;
+    font-size: 0.9rem;
+    font-weight: 700;
   }
 
   .hero-cta-subgroup {
@@ -3468,142 +3479,202 @@ textarea.form-control {
   .hero-cta-subgroup .btn {
     flex: 1;
     justify-content: center;
-    padding: 9px 8px;
-    font-size: 0.82rem;
-    gap: 6px;
+    padding: 8px;
+    font-size: 0.78rem;
+    gap: 5px;
   }
 
   /* Hero Stats 2x2 Grid */
   .hero-stats-row {
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    padding: 12px;
+    gap: 6px;
+    padding: 10px 8px;
     border-radius: var(--radius-md);
   }
 
   .stat-number {
-    font-size: 1.3rem;
-    margin-bottom: 2px;
+    font-size: 1.22rem;
+    margin-bottom: 1px;
   }
 
   .stat-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.3px;
+    font-size: 0.62rem;
+    letter-spacing: 0.2px;
   }
 
-  /* Hero Visual Card (Clean Stacked Architecture on Mobile) */
+  /* Hero Visual Card (Sleek Integrated Showcase on Mobile) */
   .hero-visual-card {
+    position: relative;
     border-width: 1.5px;
     border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-top: 6px;
   }
 
   .hero-img-container {
-    height: 200px;
+    height: 220px;
+    position: relative;
   }
 
   .floating-badge {
-    position: static;
-    margin: 6px 8px;
-    width: calc(100% - 16px);
-    box-sizing: border-box;
-    padding: 8px 12px;
+    position: absolute;
+    padding: 6px 10px;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: var(--radius-md);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    margin: 0;
+    width: auto;
+    max-width: 85%;
+    z-index: 3;
   }
 
   .floating-badge-top {
-    margin-top: 8px;
+    top: 10px;
+    left: 10px;
+    animation: none;
   }
 
   .floating-badge-bottom {
-    margin-bottom: 8px;
+    bottom: 54px;
+    right: 10px;
+    animation: none;
+  }
+
+  .floating-badge-icon {
+    width: 26px;
+    height: 26px;
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  .floating-badge-title {
+    font-size: 0.74rem;
+    color: #FFFFFF;
+  }
+
+  .floating-badge-sub {
+    font-size: 0.62rem;
+    color: #CBD5E1;
   }
 
   .dual-specialty-strip {
-    position: static;
-    padding: 10px 12px;
-    flex-direction: column;
-    gap: 6px;
-    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.94);
+    backdrop-filter: blur(8px);
+    border-radius: 0;
+  }
+
+  .specialty-chip {
+    flex: 1;
+  }
+
+  .specialty-chip-title {
+    font-size: 0.75rem;
+  }
+
+  .specialty-chip-desc {
+    font-size: 0.62rem;
+    line-height: 1.25;
   }
 
   /* Clinical Synergy */
   .synergy-box {
-    padding: 20px 14px;
+    padding: 18px 14px;
     border-radius: var(--radius-lg);
   }
 
   .synergy-header {
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
   .synergy-header h2 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     line-height: 1.25;
   }
 
   .synergy-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
   }
 
   .synergy-card {
-    padding: 16px 14px;
+    padding: 14px 12px;
     border-radius: var(--radius-md);
   }
 
   .synergy-title {
-    font-size: 1rem;
+    font-size: 0.96rem;
   }
 
   .synergy-desc {
-    font-size: 0.82rem;
-    line-height: 1.55;
+    font-size: 0.8rem;
+    line-height: 1.5;
   }
 
   /* Foundation & Pillars */
   .about-quote-box {
-    padding: 18px 14px;
+    padding: 16px 14px;
     border-radius: var(--radius-md);
   }
 
   .about-quote-text {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     line-height: 1.5;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
 
   .pillars-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
   }
 
   .pillar-card {
-    padding: 18px 14px;
+    padding: 16px 14px;
     border-radius: var(--radius-md);
   }
 
   .pillar-title {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 
   .pillar-text {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
   }
 
-  /* Doctor Cards */
+  /* Doctor Cards - Framed Portrait with Visible Faces */
   .doctors-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 16px;
   }
 
   .doctor-card {
     grid-template-columns: 1fr;
     border-radius: var(--radius-lg);
+    overflow: hidden;
   }
 
   .doctor-image-wrapper {
-    min-height: 210px;
-    height: 210px;
+    min-height: 290px;
+    height: 290px;
+    width: 100%;
+  }
+
+  .doctor-image {
+    object-position: center 10%;
   }
 
   .doctor-content {
@@ -3615,31 +3686,31 @@ textarea.form-control {
   }
 
   .doctor-qualification {
-    font-size: 0.78rem;
-    margin-bottom: 10px;
+    font-size: 0.76rem;
+    margin-bottom: 8px;
   }
 
   .doctor-specialty-tags {
-    gap: 5px;
-    margin-bottom: 12px;
+    gap: 4px;
+    margin-bottom: 10px;
   }
 
   .spec-tag {
-    font-size: 0.7rem;
-    padding: 2px 8px;
+    font-size: 0.68rem;
+    padding: 2px 7px;
   }
 
   .doctor-summary {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     line-height: 1.5;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
 
   .doctor-card-footer {
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
-    padding-top: 12px;
+    padding-top: 10px;
   }
 
   .doctor-card-footer .doctor-bio-btn {
@@ -3660,9 +3731,9 @@ textarea.form-control {
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 4px 2px 12px;
-    margin-bottom: 22px;
-    gap: 8px;
+    padding: 4px 2px 10px;
+    margin-bottom: 16px;
+    gap: 6px;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
@@ -3674,40 +3745,40 @@ textarea.form-control {
   .filter-tab-btn {
     white-space: nowrap;
     flex-shrink: 0;
-    padding: 8px 14px;
-    font-size: 0.82rem;
+    padding: 6px 12px;
+    font-size: 0.78rem;
     border-radius: var(--radius-full);
   }
 
   .services-cards-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 12px;
   }
 
   .service-card {
-    padding: 16px 14px;
+    padding: 14px 12px;
     border-radius: var(--radius-md);
   }
 
   .service-title {
-    font-size: 1.02rem;
+    font-size: 0.98rem;
   }
 
   .service-feature-list {
-    gap: 6px;
-    margin-bottom: 14px;
+    gap: 5px;
+    margin-bottom: 12px;
   }
 
   .service-feature-item {
-    font-size: 0.8rem;
-    line-height: 1.4;
+    font-size: 0.78rem;
+    line-height: 1.35;
   }
 
   .service-footer-btn {
     width: 100%;
     justify-content: center;
     padding: 8px 12px;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
   }
 
   /* Facilities & Clinic Tour Gallery */
@@ -3716,8 +3787,8 @@ textarea.form-control {
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 8px;
-    margin-bottom: 18px;
+    padding-bottom: 6px;
+    margin-bottom: 16px;
     gap: 6px;
     scrollbar-width: none;
   }
@@ -3729,54 +3800,78 @@ textarea.form-control {
   .facility-chip {
     white-space: nowrap;
     flex-shrink: 0;
-    padding: 6px 12px;
-    font-size: 0.76rem;
+    padding: 5px 10px;
+    font-size: 0.74rem;
   }
 
   .gallery-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
   }
 
   .gallery-img-box {
-    height: 180px;
+    height: 170px;
   }
 
   .gallery-overlay {
-    padding: 12px;
+    padding: 10px;
   }
 
   .gallery-caption {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
   }
 
   /* Why Choose Us & Reviews */
-  .reasons-grid,
-  .testimonials-grid {
+  .reasons-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
   }
 
-  .reason-card,
-  .testimonial-card {
-    padding: 16px 14px;
+  .reason-card {
+    padding: 14px 12px;
     border-radius: var(--radius-md);
   }
 
-  .testimonial-text {
-    font-size: 0.84rem;
-    line-height: 1.55;
+  /* Testimonials Smooth Horizontal Carousel on Mobile */
+  .testimonials-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+    padding: 4px 14px 14px;
+    margin: 0 -14px;
+    scrollbar-width: none;
+  }
+
+  .testimonials-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .testimonial-card {
+    min-width: 82vw;
+    max-width: 82vw;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    padding: 15px 14px;
+    border-radius: var(--radius-md);
+  }
+
+  .testimonial-quote {
+    font-size: 0.82rem;
+    line-height: 1.48;
+    margin-bottom: 10px;
   }
 
   /* FAQ Accordion */
   .faq-trigger {
     padding: 12px 14px;
-    font-size: 0.88rem;
+    font-size: 0.86rem;
   }
 
   .faq-answer-content {
     padding: 0 14px 14px;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
   }
 
   /* Appointment Booking */
@@ -3786,25 +3881,25 @@ textarea.form-control {
   }
 
   .booking-info-sidebar {
-    padding: 20px 16px;
+    padding: 18px 14px;
   }
 
   .sidebar-title {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
   }
 
   .sidebar-desc {
-    font-size: 0.82rem;
-    margin-bottom: 16px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
   }
 
   .sidebar-highlights {
-    gap: 10px;
-    margin-bottom: 18px;
+    gap: 8px;
+    margin-bottom: 16px;
   }
 
   .booking-form-area {
-    padding: 20px 16px;
+    padding: 18px 14px;
   }
 
   .form-control {
@@ -3819,112 +3914,99 @@ textarea.form-control {
   }
 
   .form-label {
-    font-size: 0.78rem;
-    margin-bottom: 5px;
+    font-size: 0.76rem;
+    margin-bottom: 4px;
   }
 
   .slot-options-group {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 6px;
   }
 
   .slot-radio-label {
-    padding: 9px 12px;
-    font-size: 0.82rem;
+    padding: 8px 12px;
+    font-size: 0.8rem;
   }
 
   .btn-submit-booking {
     padding: 10px 16px;
-    font-size: 0.88rem;
+    font-size: 0.86rem;
     border-radius: var(--radius-md);
   }
 
   /* Footer */
   .site-footer {
-    padding: 38px 0 20px;
+    padding: 32px 0 18px;
   }
 
   .footer-top-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
-    margin-bottom: 24px;
+    gap: 20px;
+    margin-bottom: 20px;
   }
 
   .footer-brand-title {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .footer-col-title {
-    font-size: 0.92rem;
-    margin-bottom: 12px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
   }
 
   .footer-contact-details {
-    gap: 14px;
+    gap: 12px;
   }
 
   .footer-bottom-strip {
     flex-direction: column;
     text-align: center;
-    gap: 14px;
-    padding-top: 20px;
+    gap: 12px;
+    padding-top: 16px;
   }
 
   .footer-legal-links {
     justify-content: center;
-    gap: 14px;
-    font-size: 0.78rem;
+    gap: 12px;
+    font-size: 0.75rem;
   }
 
   /* Modals on Mobile */
   .bio-modal-container,
   .ticket-container {
-    padding: 24px 18px;
-    max-width: 94vw;
-    width: 94vw;
+    padding: 20px 16px;
+    max-width: 92vw;
+    width: 92vw;
     border-radius: var(--radius-lg);
   }
 
   .bio-header {
     flex-direction: column;
     text-align: center;
-    gap: 14px;
+    gap: 12px;
   }
 
   .bio-doctor-img {
-    width: 80px;
-    height: 80px;
+    width: 76px;
+    height: 76px;
     margin: 0 auto;
   }
 
   .ticket-header-title {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
   }
 
   .ticket-card-box {
-    padding: 14px;
+    padding: 12px;
   }
 
   .ticket-row {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
   }
 
-  /* Floating Action Buttons */
+  /* Floating Action Buttons: Hide on mobile to prevent blocking screen & buttons */
   .floating-actions-container {
-    bottom: 74px;
-    right: 14px;
-    gap: 10px;
-  }
-
-  /* Hide floating WhatsApp on mobile since it's prominent in the sticky bottom bar */
-  .floating-actions-container .fab-whatsapp {
-    display: none;
-  }
-
-  .fab-btn {
-    width: 44px;
-    height: 44px;
-    font-size: 1.15rem;
+    display: none !important;
   }
 
   /* Sticky Mobile Bottom Bar */
@@ -3934,14 +4016,14 @@ textarea.form-control {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 58px;
+    height: calc(54px + env(safe-area-inset-bottom, 0px));
     background: var(--bg-card);
     border-top: 1px solid var(--border-color);
     box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.08);
     z-index: 9998;
     align-items: center;
     justify-content: space-around;
-    padding: 0 6px;
+    padding: 0 6px env(safe-area-inset-bottom, 0px);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
   }
@@ -3952,18 +4034,18 @@ textarea.form-control {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+    gap: 2px;
     height: 100%;
     text-decoration: none;
     color: var(--text-secondary);
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     font-weight: 700;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
     transition: var(--transition-fast);
   }
 
   .mobile-bottom-btn i {
-    font-size: 1.12rem;
+    font-size: 1.05rem;
     color: var(--text-dark);
   }
 
@@ -3982,15 +4064,15 @@ textarea.form-control {
   .mobile-bottom-btn-book {
     background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
     color: #FFFFFF !important;
-    border-radius: var(--radius-md);
-    height: 44px;
+    border-radius: var(--radius-sm);
+    height: 40px;
     margin: 0 4px;
     box-shadow: 0 3px 10px rgba(15, 23, 42, 0.25);
   }
 
   .mobile-bottom-btn-book i {
     color: #FFFFFF !important;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
   }
 
   .mobile-bottom-btn-book span {
