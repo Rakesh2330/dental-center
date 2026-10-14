@@ -3089,6 +3089,44 @@ textarea.form-control {
   color: #CBD5E1;
 }
 
+.footer-address-link {
+  display: block;
+  color: #FFFFFF !important;
+  font-size: 0.9rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5;
+  margin-bottom: 6px;
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+  cursor: pointer;
+}
+
+.footer-address-link:hover {
+  color: #93C5FD !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+
+.footer-contact-icon-link {
+  color: #CBD5E1;
+  text-decoration: none;
+  display: inline-flex;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-contact-icon-link:hover {
+  color: #93C5FD;
+  transform: translateY(-2px);
+}
+
+.footer-address-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
 .footer-copy-address-btn {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -3098,10 +3136,11 @@ textarea.form-control {
   padding: 3px 8px;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  margin-top: 5px;
+  margin-top: 0;
   display: inline-flex;
   align-items: center;
   gap: 5px;
+  text-decoration: none;
   transition: var(--transition-fast);
 }
 
