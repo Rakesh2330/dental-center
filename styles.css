@@ -717,6 +717,15 @@ button, input, select, textarea {
   background: var(--nav-bg);
 }
 
+.site-header .container,
+.top-notice-bar .container {
+  max-width: 1400px;
+}
+
+.nav-btn-book-text-short {
+  display: none;
+}
+
 .nav-wrapper {
   display: flex;
   justify-content: space-between;
@@ -4413,24 +4422,116 @@ textarea.form-control {
 /* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */
-@media (max-width: 1360px) {
+@media (max-width: 1440px) {
+  .site-header .container,
+  .top-notice-bar .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .brand-title {
+    font-size: 1.1rem;
+  }
+  .brand-subtitle {
+    font-size: 0.66rem;
+  }
   .nav-links {
-    gap: 8px;
+    gap: 6px;
   }
   .nav-link {
     font-size: 0.82rem;
     padding: 5px 6px;
   }
+  .nav-actions {
+    gap: 8px;
+  }
+  .nav-actions .btn-sm {
+    padding: 7px 12px;
+    font-size: 0.82rem;
+  }
 }
 
-@media (max-width: 1240px) {
-  .nav-links,
-  .nav-actions .btn {
+@media (max-width: 1320px) {
+  .site-header .container,
+  .top-notice-bar .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .brand-emblem-wrap {
+    width: 38px;
+    height: 38px;
+  }
+  .brand-title {
+    font-size: 0.98rem;
+  }
+  .brand-subtitle {
+    font-size: 0.6rem;
+    letter-spacing: 0.3px;
+  }
+  .nav-links {
+    gap: 3px;
+  }
+  .nav-link {
+    font-size: 0.76rem;
+    padding: 4px 5px;
+  }
+  .nav-actions {
+    gap: 6px;
+  }
+  /* On compact laptops, streamline "Call Now" to a clean icon button so both actions fit seamlessly */
+  .nav-btn-call {
+    padding: 7px 10px;
+  }
+  .nav-btn-call-text {
+    display: none;
+  }
+  .nav-btn-book-text-long {
+    display: none;
+  }
+  .nav-btn-book-text-short {
+    display: inline;
+  }
+  .nav-btn-book {
+    padding: 7px 11px;
+    font-size: 0.78rem;
+  }
+  .theme-toggle {
+    width: 34px;
+    height: 34px;
+    font-size: 0.88rem;
+  }
+  .top-contact-link {
+    font-size: 0.72rem;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .nav-links {
     display: none;
   }
 
+  .nav-btn-call {
+    display: none;
+  }
+
+  .nav-btn-book {
+    display: inline-flex;
+    padding: 7px 12px;
+    font-size: 0.82rem;
+  }
+
+  .nav-btn-book-text-long {
+    display: none;
+  }
+
+  .nav-btn-book-text-short {
+    display: inline;
+  }
+
   .mobile-nav-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .top-notice-content {
@@ -4556,6 +4657,10 @@ textarea.form-control {
 
   .site-header .container {
     padding: 0 16px;
+  }
+
+  .nav-btn-book {
+    display: none !important;
   }
 
   /* Compact Scaled Brand Header */
