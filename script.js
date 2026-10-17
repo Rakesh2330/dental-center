@@ -12,59 +12,48 @@
   const label     = document.getElementById('preloaderLabel');
   if (!preloader) return;
 
-  // Lock scroll
-  document.body.classList.add('is-loading');
-
   // Apply saved theme instantly so preloader renders correctly
   const savedTheme = localStorage.getItem('dnc-theme');
   if (savedTheme) {
     document.documentElement.setAttribute('data-theme', savedTheme);
   }
 
-  // Minimum display time (ms) — lets the animation play fully
-  const MIN_DISPLAY = 2200;
-  const startTime   = Date.now();
-
+  let dismissed = false;
   function dismissPreloader() {
-    const elapsed = Date.now() - startTime;
-    const remaining = Math.max(0, MIN_DISPLAY - elapsed);
+    if (dismissed) return;
+    dismissed = true;
+
+    if (bar) bar.style.width = '100%';
+    if (label) label.textContent = 'Ready';
 
     setTimeout(() => {
-      // Complete the progress bar to 100%
-      if (bar) bar.style.width = '100%';
-      if (label) label.textContent = 'Ready';
+      preloader.classList.add('preloader-done');
+      document.body.classList.remove('is-loading');
 
-      // Small pause then fade out
+      // Reveal elements already in viewport
+      document.querySelectorAll('.scroll-reveal, .reveal-from-left, .reveal-from-right, .reveal-zoom').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight + 150 && rect.bottom > -50) {
+          el.classList.add('is-revealed', 'reveal-done');
+        }
+      });
+
       setTimeout(() => {
-        preloader.classList.add('preloader-done');
-        document.body.classList.remove('is-loading');
-
-        // Reveal any elements already visible on screen
-        window.dispatchEvent(new Event('scroll'));
-        document.querySelectorAll('.scroll-reveal, .reveal-from-left, .reveal-from-right, .reveal-zoom').forEach(el => {
-          const rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight + 150 && rect.bottom > -50) {
-            el.classList.add('is-revealed', 'reveal-done');
-          }
-        });
-
-        // Remove from DOM after transition
-        preloader.addEventListener('transitionend', () => {
-          preloader.remove();
-        }, { once: true });
-      }, 320);
-    }, remaining);
+        preloader.remove();
+      }, 280);
+    }, 100);
   }
 
-  // Dismiss when all assets are loaded
-  if (document.readyState === 'complete') {
-    dismissPreloader();
+  // Dismiss immediately once DOM is interactive (instant load feel)
+  if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    setTimeout(dismissPreloader, 60);
   } else {
+    document.addEventListener('DOMContentLoaded', () => setTimeout(dismissPreloader, 60), { once: true });
     window.addEventListener('load', dismissPreloader, { once: true });
   }
 
-  // Safety fallback: never block for more than 5s
-  setTimeout(dismissPreloader, 5000);
+  // Safety fallback: never hold page for more than 500ms under any circumstance
+  setTimeout(dismissPreloader, 500);
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -756,10 +745,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (prefersReducedMotion) return;
 
     const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark';
-    let animFrameId;
+    let animFrameId = null;
     let particles = [];
-    const PARTICLE_COUNT = 48;
-    const CONNECT_DIST  = 130;
+    const isMobile = window.innerWidth < 768;
+    const PARTICLE_COUNT = isMobile ? 18 : 32;
+    const CONNECT_DIST  = isMobile ? 85 : 115;
 
     // Grey-only palette matching the monochrome design
     const LIGHT_COLORS = [
@@ -777,6 +767,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function resizeCanvas() {
       const hero = canvas.parentElement;
+      if (!hero) return;
       canvas.width  = hero.offsetWidth;
       canvas.height = hero.offsetHeight;
     }
@@ -789,11 +780,11 @@ document.addEventListener('DOMContentLoaded', () => {
       return {
         x:  rand(0, canvas.width),
         y:  rand(0, canvas.height),
-        vx: rand(-0.28, 0.28),
-        vy: rand(-0.22, 0.22),
-        r:  rand(1.8, 4.2),
+        vx: rand(-0.24, 0.24),
+        vy: rand(-0.18, 0.18),
+        r:  rand(1.6, 3.6),
         color: c,
-        alpha: rand(0.25, 0.6),
+        alpha: rand(0.25, 0.55),
       };
     }
 
@@ -811,17 +802,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function connectParticles() {
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
+      const pLen = particles.length;
+      for (let i = 0; i < pLen; i++) {
+        const pi = particles[i];
+        for (let j = i + 1; j < pLen; j++) {
+          const pj = particles[j];
+          const dx = pi.x - pj.x;
+          const dy = pi.y - pj.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < CONNECT_DIST) {
-            const opacity = (1 - dist / CONNECT_DIST) * (isDark() ? 0.18 : 0.12);
-            const c = particles[i].color;
+            const opacity = (1 - dist / CONNECT_DIST) * (isDark() ? 0.16 : 0.1);
+            const c = pi.color;
             ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.moveTo(pi.x, pi.y);
+            ctx.lineTo(pj.x, pj.y);
             ctx.strokeStyle = `rgba(${c[0]},${c[1]},${c[2]},${opacity})`;
             ctx.lineWidth = 1;
             ctx.stroke();
@@ -830,13 +824,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    let isVisible = true;
     function tick() {
+      if (!isVisible) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach(p => {
         p.x += p.vx;
         p.y += p.vy;
-        // Wrap around edges
         if (p.x < -10) p.x = canvas.width + 10;
         if (p.x > canvas.width  + 10) p.x = -10;
         if (p.y < -10) p.y = canvas.height + 10;
@@ -850,7 +845,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     resizeCanvas();
     initParticles();
-    tick();
+    animFrameId = requestAnimationFrame(tick);
+
+    // Pause animation when hero is off-screen to save CPU & battery
+    const heroObserver = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+      if (isVisible) {
+        cancelAnimationFrame(animFrameId);
+        animFrameId = requestAnimationFrame(tick);
+      } else {
+        cancelAnimationFrame(animFrameId);
+      }
+    }, { threshold: 0.05 });
+    heroObserver.observe(canvas.parentElement || canvas);
 
     const resizeObserver = new ResizeObserver(() => {
       resizeCanvas();
@@ -1063,7 +1070,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!hero) return;
       const heroH   = hero.offsetHeight;
       // Only run while hero is partially in view
-      if (scrollY > heroH * 1.2) return;
+      if (scrollY > heroH * 1.2) {
+        ticking = false;
+        return;
+      }
 
       const p = scrollY / heroH; // 0→1 as hero scrolls out
 

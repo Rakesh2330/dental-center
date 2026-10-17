@@ -1,0 +1,5 @@
+# Temporary & backup folders
+assets_backup/
+scratch/
+.DS_Store
+Thumbs.db

@@ -18,6 +18,10 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+  <!-- Preload Critical Above-The-Fold Assets -->
+  <link rel="preload" as="image" href="assets/dental logo.jpeg">
+  <link rel="preload" as="image" href="assets/g1.jpg">
+
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 
@@ -304,19 +308,19 @@
             <div class="hero-carousel-track">
               <!-- Slide 1: Grand Entrance & Reception Lounge -->
               <div class="hero-slide active" data-slide="0" role="group" aria-roledescription="slide" aria-label="1 of 3">
-                <img src="assets/g1.png" alt="Grand Entrance & Reception Lounge" class="hero-img" loading="eager">
+                <img src="assets/g1.jpg" alt="Grand Entrance & Reception Lounge" class="hero-img" loading="eager" fetchpriority="high" decoding="async">
                 <div class="hero-slide-scrim"></div>
               </div>
 
               <!-- Slide 2: Advanced Dental Operatory Suite -->
               <div class="hero-slide" data-slide="1" role="group" aria-roledescription="slide" aria-label="2 of 3">
-                <img src="assets/g4.png" alt="Advanced Dental Operatory Suite with 3D Display" class="hero-img" loading="lazy">
+                <img src="assets/g4.jpg" alt="Advanced Dental Operatory Suite with 3D Display" class="hero-img" loading="lazy" decoding="async">
                 <div class="hero-slide-scrim"></div>
               </div>
 
               <!-- Slide 3: Doctor Consultation & Spine Review Chamber -->
               <div class="hero-slide" data-slide="2" role="group" aria-roledescription="slide" aria-label="3 of 3">
-                <img src="assets/g2.png" alt="Private Doctor Consultation Chamber and Examination Suite" class="hero-img" loading="lazy">
+                <img src="assets/g2.jpg" alt="Private Doctor Consultation Chamber and Examination Suite" class="hero-img" loading="lazy" decoding="async">
                 <div class="hero-slide-scrim"></div>
               </div>
             </div>
@@ -499,7 +503,7 @@
         <!-- Doctor Card 1: Dr. Ahalya N -->
         <div class="doctor-card">
           <div class="doctor-image-wrapper">
-            <img src="assets/dr-ahalya.jpg" alt="Dr. Ahalya N - Dental Surgeon" class="doctor-image">
+            <img src="assets/dr-ahalya.jpg" alt="Dr. Ahalya N - Dental Surgeon" class="doctor-image" loading="lazy" decoding="async">
             <div class="doctor-reg-chip">Reg. No. 44345 A (KDC)</div>
             <div class="doctor-exp-badge">6+ Years Exp</div>
           </div>
@@ -531,7 +535,7 @@
         <!-- Doctor Card 2: Dr. Puneeth S -->
         <div class="doctor-card">
           <div class="doctor-image-wrapper">
-            <img src="assets/dr-puneeth.jpg" alt="Dr. Puneeth S - Consultant Neurosurgeon" class="doctor-image">
+            <img src="assets/dr-puneeth.jpg" alt="Dr. Puneeth S - Consultant Neurosurgeon" class="doctor-image" loading="lazy" decoding="async">
             <div class="doctor-reg-chip">Reg. No. KMC 106238</div>
             <div class="doctor-exp-badge">10+ Years Exp</div>
           </div>
@@ -1150,7 +1154,7 @@
         <!-- Gallery 1: Grand Entrance & Reception Lounge (Wide Hero) -->
         <div class="gallery-card gallery-card-hero">
           <div class="gallery-img-box">
-            <img src="assets/g1.png" alt="Grand Entrance & Reception Lounge at Dr. Ahalya Dento Neuro Centre" class="gallery-img" loading="lazy">
+            <img src="assets/g1.jpg" alt="Grand Entrance & Reception Lounge at Dr. Ahalya Dento Neuro Centre" class="gallery-img" loading="lazy" decoding="async">
             <span class="gallery-zoom-badge" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
             <div class="gallery-overlay">
               <div class="gallery-caption">Grand Entrance &amp; Reception Lounge</div>
@@ -1162,7 +1166,7 @@
         <!-- Gallery 2: Doctor's Private Consultation Chamber -->
         <div class="gallery-card gallery-card-consult">
           <div class="gallery-img-box">
-            <img src="assets/g2.png" alt="Doctor Consultation Chamber & Examination Couch" class="gallery-img" loading="lazy">
+            <img src="assets/g2.jpg" alt="Doctor Consultation Chamber & Examination Couch" class="gallery-img" loading="lazy" decoding="async">
             <span class="gallery-zoom-badge" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
             <div class="gallery-overlay">
               <div class="gallery-caption">Private Consultation &amp; Examination Suite</div>
@@ -1174,7 +1178,7 @@
         <!-- Gallery 3: FDI Dental Chart Wall & Operatory Corridor -->
         <div class="gallery-card gallery-card-fdi">
           <div class="gallery-img-box">
-            <img src="assets/g3.png" alt="FDI Dental Chart Wall Art & Warm Chandelier" class="gallery-img" loading="lazy">
+            <img src="assets/g3.jpg" alt="FDI Dental Chart Wall Art & Warm Chandelier" class="gallery-img" loading="lazy" decoding="async">
             <span class="gallery-zoom-badge" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
             <div class="gallery-overlay">
               <div class="gallery-caption">FDI Dental Wall &amp; Treatment Corridor</div>
@@ -1186,7 +1190,7 @@
         <!-- Gallery 4: Advanced Dual Dental Operatory Suite -->
         <div class="gallery-card gallery-card-operatory-1">
           <div class="gallery-img-box">
-            <img src="assets/g4.png" alt="Advanced Dual Dental Operatory Suite" class="gallery-img" loading="lazy">
+            <img src="assets/g4.jpg" alt="Advanced Dual Dental Operatory Suite" class="gallery-img" loading="lazy" decoding="async">
             <span class="gallery-zoom-badge" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
             <div class="gallery-overlay">
               <div class="gallery-caption">Advanced Dental Operatory Suite</div>
@@ -1198,7 +1202,7 @@
         <!-- Gallery 5: Motorized Operatory Chair & Digital Cart -->
         <div class="gallery-card gallery-card-operatory-2">
           <div class="gallery-img-box">
-            <img src="assets/g5.png" alt="Fully Motorized Dental Chair & Digital Imaging Console" class="gallery-img" loading="lazy">
+            <img src="assets/g5.jpg" alt="Fully Motorized Dental Chair & Digital Imaging Console" class="gallery-img" loading="lazy" decoding="async">
             <span class="gallery-zoom-badge" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
             <div class="gallery-overlay">
               <div class="gallery-caption">Motorized Operatory &amp; Digital Workstation</div>
@@ -1862,6 +1866,6 @@
   </div>
 
   <!-- Interactive JavaScript -->
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
