@@ -719,7 +719,11 @@ button, input, select, textarea {
 
 .site-header .container,
 .top-notice-bar .container {
-  max-width: 1400px;
+  max-width: 1540px;
+  width: 100%;
+  padding-left: clamp(14px, 2vw, 30px);
+  padding-right: clamp(14px, 2vw, 30px);
+  box-sizing: border-box;
 }
 
 .nav-btn-book-text-short {
@@ -730,22 +734,24 @@ button, input, select, textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: clamp(10px, 1.4vw, 20px);
   width: 100%;
+  min-width: 0;
 }
 
 /* Brand Logo (Fixed Wrapping & Structured Clean Line) */
 .brand-logo-group {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: clamp(8px, 1vw, 12px);
   text-decoration: none;
   flex-shrink: 0;
+  min-width: 0;
 }
 
 .brand-emblem-wrap {
-  width: 46px;
-  height: 46px;
+  width: 42px;
+  height: 42px;
   border-radius: var(--radius-md);
   background: #FFFFFF;
   border: 1.5px solid var(--border-color);
@@ -767,11 +773,12 @@ button, input, select, textarea {
   display: flex;
   flex-direction: column;
   white-space: nowrap;
+  min-width: 0;
 }
 
 .brand-title {
   font-family: var(--font-heading);
-  font-size: 1.18rem;
+  font-size: clamp(0.98rem, 1.15vw, 1.14rem);
   font-weight: 800;
   color: var(--text-dark);
   line-height: 1.15;
@@ -780,33 +787,36 @@ button, input, select, textarea {
 }
 
 .brand-subtitle {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   color: var(--text-muted);
   text-transform: uppercase;
   font-weight: 700;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.6px;
   margin-top: 2px;
   white-space: nowrap;
 }
 
-/* Nav Menu Links (No Word Wrapping) */
+/* Nav Menu Links (Clean Flex Layout) */
 .nav-links {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: clamp(4px, 0.7vw, 10px);
   list-style: none;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
   flex-wrap: nowrap;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .nav-link {
-  font-size: 0.88rem;
+  font-size: clamp(0.8rem, 0.88vw, 0.86rem);
   font-weight: 600;
   color: var(--text-secondary);
   text-decoration: none;
   position: relative;
-  padding: 6px 8px;
+  padding: 6px clamp(5px, 0.6vw, 9px);
   border-radius: var(--radius-sm);
   white-space: nowrap;
   transition: var(--transition-fast);
@@ -822,8 +832,8 @@ button, input, select, textarea {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 8px;
-  right: 8px;
+  left: 6px;
+  right: 6px;
   height: 2px;
   background: var(--text-dark);
   border-radius: var(--radius-full);
@@ -840,7 +850,7 @@ button, input, select, textarea {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: clamp(6px, 0.8vw, 10px);
   flex-shrink: 0;
 }
 
@@ -4429,17 +4439,22 @@ textarea.form-control {
     padding-right: 18px;
   }
   .brand-title {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
   .brand-subtitle {
-    font-size: 0.66rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.4px;
+  }
+  /* On laptops and compact desktop, hide secondary links to guarantee 0 overflow */
+  .nav-item-secondary {
+    display: none !important;
   }
   .nav-links {
-    gap: 6px;
+    gap: 5px;
   }
   .nav-link {
     font-size: 0.82rem;
-    padding: 5px 6px;
+    padding: 5px 7px;
   }
   .nav-actions {
     gap: 8px;
@@ -4450,7 +4465,7 @@ textarea.form-control {
   }
 }
 
-@media (max-width: 1320px) {
+@media (max-width: 1280px) {
   .site-header .container,
   .top-notice-bar .container {
     padding-left: 14px;
@@ -4464,15 +4479,14 @@ textarea.form-control {
     font-size: 0.98rem;
   }
   .brand-subtitle {
-    font-size: 0.6rem;
-    letter-spacing: 0.3px;
+    display: none;
   }
   .nav-links {
     gap: 3px;
   }
   .nav-link {
-    font-size: 0.76rem;
-    padding: 4px 5px;
+    font-size: 0.78rem;
+    padding: 4px 6px;
   }
   .nav-actions {
     gap: 6px;
@@ -4491,8 +4505,8 @@ textarea.form-control {
     display: inline;
   }
   .nav-btn-book {
-    padding: 7px 11px;
-    font-size: 0.78rem;
+    padding: 7px 12px;
+    font-size: 0.8rem;
   }
   .theme-toggle {
     width: 34px;
@@ -4505,12 +4519,17 @@ textarea.form-control {
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1160px) {
   .nav-links {
-    display: none;
+    display: none !important;
   }
 
   .nav-btn-call {
+    display: inline-flex;
+    padding: 7px 10px;
+  }
+
+  .nav-btn-call-text {
     display: none;
   }
 
@@ -4529,7 +4548,7 @@ textarea.form-control {
   }
 
   .mobile-nav-toggle {
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
   }
