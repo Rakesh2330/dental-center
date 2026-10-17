@@ -104,18 +104,18 @@
   <div class="top-notice-bar">
     <div class="container top-notice-content">
       <div class="notice-badge">
-        <span class="live-dot"></span>
-        <span id="liveStatusText">Centre Open Today in Saraswathipuram | Emergency Triage Active</span>
+        <span class="live-dot" aria-hidden="true"></span>
+        <span id="liveStatusText">Centre Open Today | Saraswathipuram (Emergency Triage Active)</span>
       </div>
       <div class="top-contact-links">
         <a href="tel:+916360521761" class="top-contact-link">
-          <i class="fa-solid fa-phone"></i> +91 63605 21761
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> +91 63605 21761
         </a>
         <a href="mailto:drahalyadentoneurocentre@gmail.com" class="top-contact-link">
-          <i class="fa-solid fa-envelope"></i> drahalyadentoneurocentre@gmail.com
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i> drahalyadentoneurocentre@gmail.com
         </a>
         <span class="top-contact-link">
-          <i class="fa-regular fa-clock"></i> Mon–Sat: 10AM–2PM &amp; 4PM–8PM
+          <i class="fa-regular fa-clock" aria-hidden="true"></i> Mon–Sat: 10AM–2PM &amp; 4PM–8PM
         </span>
       </div>
     </div>
@@ -184,6 +184,7 @@
       <li><a href="#home" class="drawer-link">Home</a></li>
       <li><a href="#about" class="drawer-link">About Us</a></li>
       <li><a href="#doctors" class="drawer-link">Our Lead Specialists</a></li>
+      <li><a href="#teeth-explorer" class="drawer-link">Teeth Anatomy Explorer</a></li>
       <li><a href="#services" class="drawer-link">Clinical Services</a></li>
       <li><a href="#synergy" class="drawer-link">Dual Synergy</a></li>
       <li><a href="#why-us" class="drawer-link">Why Choose Us</a></li>
@@ -223,10 +224,29 @@
           <i class="fa-solid fa-tooth"></i> Mysore’s Premier Multispecialty Healthcare
         </div>
 
-        <!-- Doctor Credential Badge -->
-        <div class="hero-doctor-badge">
-          <h3>DR. AHALYA N &bull; DR. PUNEETH S</h3>
-          <p>BDS (RGUHS) • MBBS, MS, MCh Neurosurgery (PGIMER Chandigarh)</p>
+        <!-- Doctor Credential Cards (Two Distinct Specialist Cards) -->
+        <div class="hero-doctors-dual">
+          <a href="#doctors" class="hero-doctor-mini-card" aria-label="View Dr. Ahalya N profile">
+            <div class="hero-doc-mini-avatar">
+              <img src="assets/dr-ahalya.jpg" alt="Dr. Ahalya N - Dental Surgeon">
+            </div>
+            <div class="hero-doc-mini-meta">
+              <span class="hero-doc-mini-dept"><i class="fa-solid fa-tooth" aria-hidden="true"></i> Dental Surgery</span>
+              <h3 class="hero-doc-mini-name">Dr. Ahalya N</h3>
+              <p class="hero-doc-mini-qual">BDS (RGUHS Bangalore)</p>
+            </div>
+          </a>
+
+          <a href="#doctors" class="hero-doctor-mini-card" aria-label="View Dr. Puneeth S profile">
+            <div class="hero-doc-mini-avatar">
+              <img src="assets/dr-puneeth.jpg" alt="Dr. Puneeth S - Neurosurgeon & Spine">
+            </div>
+            <div class="hero-doc-mini-meta">
+              <span class="hero-doc-mini-dept"><i class="fa-solid fa-brain" aria-hidden="true"></i> Neurosurgery &amp; Spine</span>
+              <h3 class="hero-doc-mini-name">Dr. Puneeth S</h3>
+              <p class="hero-doc-mini-qual">MBBS, MS, MCh (PGIMER)</p>
+            </div>
+          </a>
         </div>
 
         <h1 class="hero-title">
@@ -276,40 +296,48 @@
       <!-- Hero Visual Showcase (Centered Architectural Showcase) -->
       <div class="hero-visual-center">
         <div class="hero-visual-card">
-          <div class="hero-img-container">
-            <img src="assets/clinic-interior.jpg" alt="Dr Ahalya Dento Neuro Centre Interior" class="hero-img">
-          </div>
+          <div class="hero-img-container hero-carousel" id="heroCarousel" aria-roledescription="carousel" aria-label="Clinic Facilities Carousel">
+            <!-- Carousel Slides (3 Authentic Clinic Images) -->
+            <div class="hero-carousel-track">
+              <!-- Slide 1: Grand Entrance & Reception Lounge -->
+              <div class="hero-slide active" data-slide="0" role="group" aria-roledescription="slide" aria-label="1 of 3">
+                <img src="assets/g1.png" alt="Grand Entrance & Reception Lounge" class="hero-img" loading="eager">
+                <div class="hero-slide-scrim"></div>
+              </div>
 
-          <!-- Floating Trust Badge Top Left -->
-          <div class="floating-badge floating-badge-top">
-            <div class="floating-badge-icon">
-              <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <div>
-              <div class="floating-badge-title">Hospital-Grade Asepsis</div>
-              <div class="floating-badge-sub">Class-B Vacuum Autoclave</div>
-            </div>
-          </div>
+              <!-- Slide 2: Advanced Dental Operatory Suite -->
+              <div class="hero-slide" data-slide="1" role="group" aria-roledescription="slide" aria-label="2 of 3">
+                <img src="assets/g4.png" alt="Advanced Dental Operatory Suite with 3D Display" class="hero-img" loading="lazy">
+                <div class="hero-slide-scrim"></div>
+              </div>
 
-          <!-- Floating Trust Badge Bottom Right -->
-          <div class="floating-badge floating-badge-bottom">
-            <div class="floating-badge-icon">
-              <i class="fa-solid fa-award"></i>
+              <!-- Slide 3: Doctor Consultation & Spine Review Chamber -->
+              <div class="hero-slide" data-slide="2" role="group" aria-roledescription="slide" aria-label="3 of 3">
+                <img src="assets/g2.png" alt="Private Doctor Consultation Chamber and Examination Suite" class="hero-img" loading="lazy">
+                <div class="hero-slide-scrim"></div>
+              </div>
             </div>
-            <div>
-              <div class="floating-badge-title">PGIMER &amp; RGUHS Alumni</div>
-              <div class="floating-badge-sub">Specialist-Led Healthcare</div>
+
+            <!-- Carousel Pagination Dots -->
+            <div class="hero-carousel-dots" id="heroCarouselDots" role="tablist" aria-label="Hero Carousel Navigation">
+              <button class="hero-dot active" data-slide-to="0" role="tab" aria-selected="true" aria-label="Slide 1: Reception Lounge"></button>
+              <button class="hero-dot" data-slide-to="1" role="tab" aria-selected="false" aria-label="Slide 2: Dental Operatory"></button>
+              <button class="hero-dot" data-slide-to="2" role="tab" aria-selected="false" aria-label="Slide 3: Consultation Chamber"></button>
             </div>
           </div>
 
           <!-- Dual Discipline Footer Strip -->
           <div class="dual-specialty-strip">
             <div class="specialty-chip">
-              <div class="specialty-chip-title"><i class="fa-solid fa-tooth"></i> Dental Care</div>
-              <div class="specialty-chip-desc">Laser Dentistry &amp; Rotary Root Canals</div>
+              <div class="specialty-chip-title">
+                <i class="fa-solid fa-tooth"></i> Dental Care <span class="specialty-chip-doc">&bull; Dr. Ahalya N</span>
+              </div>
+              <div class="specialty-chip-desc">Laser Dentistry &amp; Pain-Free Root Canals</div>
             </div>
             <div class="specialty-chip">
-              <div class="specialty-chip-title"><i class="fa-solid fa-brain"></i> Neuro Suite</div>
+              <div class="specialty-chip-title">
+                <i class="fa-solid fa-brain"></i> Neuro Care <span class="specialty-chip-doc">&bull; Dr. Puneeth S</span>
+              </div>
               <div class="specialty-chip-desc">Brain &amp; Keyhole Spine Surgery</div>
             </div>
           </div>
@@ -481,11 +509,11 @@
               <span class="spec-tag">Laser Dentistry</span>
               <span class="spec-tag">Smile Designing</span>
               <span class="spec-tag">Rotary Endodontics</span>
-              <span class="spec-tag">Painless RCT</span>
+              <span class="spec-tag">Pain-Free Root Canal</span>
             </div>
 
             <p class="doctor-summary">
-              Renowned dental surgeon specializing in pain-free microscopic root canal therapies, laser-assisted cosmetic contouring, and modern aesthetic smile reconstructions.
+              Renowned dental surgeon specializing in pain-free root canal therapies, laser-assisted cosmetic contouring, and modern aesthetic smile reconstructions.
             </p>
 
             <div class="doctor-card-footer">
@@ -581,6 +609,235 @@
       </div>
     </div>
   </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTERACTIVE DENTAL ANATOMY & TEETH CHART EXPLORER
+       ═══════════════════════════════════════════════════════════ -->
+  <!-- ═══════════════════════════════════════════════════════════
+       INTERACTIVE DENTAL ANATOMY & CONDITIONS EXPLORER
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section teeth-explorer-section" id="teeth-explorer">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-tooth"></i> Interactive Dental Experience</span>
+        <h2 class="section-title">Interactive Teeth &amp; Oral Health Explorer</h2>
+        <p class="section-desc">
+          Inspired by advanced clinical visualization. Select any common dental condition on the right or tap individual teeth on the chart to explore symptoms, affected anatomy, and specialized treatments.
+        </p>
+      </div>
+
+      <!-- Main Two-Column Interactive Workspace (Reference Spine Layout adapted for Teeth) -->
+      <div class="teeth-explorer-grid">
+        <!-- Left: Glowing Anatomical Teeth Card with Ambient Particles -->
+        <div class="teeth-visual-card">
+          <!-- Ambient Particle Field (as in reference image) -->
+          <div class="ambient-particle-field" aria-hidden="true">
+            <span class="particle p-1"></span>
+            <span class="particle p-2"></span>
+            <span class="particle p-3"></span>
+            <span class="particle p-4"></span>
+            <span class="particle p-5"></span>
+            <span class="particle p-6"></span>
+            <span class="particle p-7"></span>
+            <span class="particle p-8"></span>
+          </div>
+
+          <!-- Card Top Bar: Dual View Mode Switch & Live Highlight Status -->
+          <div class="teeth-canvas-topbar">
+            <div class="teeth-mode-switch" role="tablist" aria-label="Explorer View Mode">
+              <button class="teeth-mode-btn active" data-view="3d-model" role="tab" aria-selected="true" type="button">
+                <i class="fa-solid fa-cube"></i> 3D Dental &amp; Nerve Model
+              </button>
+              <button class="teeth-mode-btn" data-view="chart-arch" role="tab" aria-selected="false" type="button">
+                <i class="fa-solid fa-circle-nodes"></i> Clinical Dentition (32)
+              </button>
+            </div>
+            <div class="teeth-status-indicator" id="teethStatusIndicator">
+              <span class="status-glow-dot"></span>
+              <span id="teethStatusText">Interactive 3D Dental Model</span>
+            </div>
+          </div>
+
+          <!-- VIEW A: Photorealistic 3D Anatomical Jaw & Nerve Model with Interactive Hotspots -->
+          <div class="teeth-3d-model-stage active" id="teeth3DModelStage">
+            <div class="teeth-3d-img-wrapper">
+              <img src="assets/dental-3d-model.jpg" alt="3D Dental and Nerve Anatomy Model" class="teeth-3d-img" id="teeth3DImg" loading="lazy" />
+              <div class="teeth-3d-glow-overlay" id="teeth3DGlowOverlay"></div>
+
+              <!-- Interactive 3D Hotspot Pins (Mapped to 8 conditions) -->
+              <!-- 1. Molar Decay Zone (Upper Molars) -->
+              <button class="anatomical-hotspot" style="top: 36%; left: 34%;" data-condition="decay" type="button" aria-label="Molar Bite & Decay Zone">
+                <span class="hotspot-pulse"></span>
+                <span class="hotspot-core"><i class="fa-solid fa-tooth"></i></span>
+                <span class="hotspot-tooltip">Molars &bull; Decay &amp; Cavity Zone</span>
+              </button>
+
+              <!-- 2. Root Canal & Pulp Canal Zone (Lower Molars) -->
+              <button class="anatomical-hotspot" style="top: 66%; left: 38%;" data-condition="root-canal" type="button" aria-label="Pulp Chamber & Root Canal">
+                <span class="hotspot-pulse"></span>
+                <span class="hotspot-core"><i class="fa-solid fa-bolt"></i></span>
+                <span class="hotspot-tooltip">Root Canals &bull; Pulp Infection (RCT)</span>
+              </button>
+
+              <!-- 3. Anterior Incisors & Smile Zone (Front Teeth) -->
+              <button class="anatomical-hotspot" style="top: 38%; left: 74%;" data-condition="broken-teeth" type="button" aria-label="Anterior Incisors & Aesthetic Zone">
+                <span class="hotspot-pulse"></span>
+                <span class="hotspot-core"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                <span class="hotspot-tooltip">Incisors &bull; Chipped Teeth &amp; Veneers</span>
+              </button>
+
+              <!-- 4. Wisdom Tooth & Angle (Posterior Jaw) -->
+              <button class="anatomical-hotspot" style="top: 32%; left: 16%;" data-condition="wisdom-teeth" type="button" aria-label="3rd Molar Impaction Zone">
+                <span class="hotspot-pulse"></span>
+                <span class="hotspot-core"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                <span class="hotspot-tooltip">3rd Molar &bull; Wisdom Tooth Impaction</span>
+              </button>
+
+              <!-- 5. Smile Alignment Zone (Front Arch) -->
+              <button class="anatomical-hotspot" style="top: 62%; left: 71%;" data-condition="misalignment" type="button" aria-label="Smile Alignment & Clear Aligners">
+                <span class="hotspot-pulse"></span>
+                <span class="hotspot-core"><i class="fa-solid fa-arrows-left-right"></i></span>
+                <span class="hotspot-tooltip">Anterior Arch &bull; Smile Alignment</span>
+              </button>
+
+              <!-- 6. Cervical Enamel & Sensitivity (Premolars) -->
+              <button class="anatomical-hotspot" style="top: 64%; left: 52%;" data-condition="sensitivity" type="button" aria-label="Cervical Enamel Sensitivity">
+                <span class="hotspot-pulse"></span>
+                <span class="hotspot-core"><i class="fa-solid fa-shield-halved"></i></span>
+                <span class="hotspot-tooltip">Cervical Necks &bull; Tooth Sensitivity</span>
+              </button>
+
+              <!-- 7. Alveolar Bone & Implants (Lower Jawbone Ridge) -->
+              <button class="anatomical-hotspot" style="top: 80%; left: 45%;" data-condition="missing-teeth" type="button" aria-label="Alveolar Bone & Dental Implants">
+                <span class="hotspot-pulse"></span>
+                <span class="hotspot-core"><i class="fa-solid fa-plus"></i></span>
+                <span class="hotspot-tooltip">Alveolar Bone &bull; Dental Implants</span>
+              </button>
+
+              <!-- 8. Periodontal & Neuro-Gingival Margin -->
+              <button class="anatomical-hotspot" style="top: 72%; left: 24%;" data-condition="periodontal" type="button" aria-label="Inferior Alveolar Nerve & Periodontal Margin">
+                <span class="hotspot-pulse"></span>
+                <span class="hotspot-core"><i class="fa-solid fa-heart-pulse"></i></span>
+                <span class="hotspot-tooltip">Nerve Canal &bull; Periodontal Laser Care</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- VIEW B: Clinical Dentition Chart (32 Permanent + 20 Milk SVG Arch) -->
+          <div class="teeth-chart-stage" id="teethChartStage" style="display: none;">
+            <div class="chart-dentition-pills">
+              <button class="dentition-sub-btn active" data-dentition-mode="adult" type="button">Permanent (32 Adult)</button>
+              <button class="dentition-sub-btn" data-dentition-mode="child" type="button">Primary (20 Milk)</button>
+            </div>
+            <div class="teeth-svg-stage">
+              <svg viewBox="0 0 600 760" id="teethSvgArch" class="teeth-svg-arch" xmlns="http://www.w3.org/2000/svg" aria-label="Interactive Teeth Chart">
+                <defs>
+                  <!-- 3D Tooth Elevation Shadow -->
+                  <filter id="tooth3dDropShadow" x="-30%" y="-30%" width="160%" height="180%">
+                    <feDropShadow dx="0" dy="3" stdDeviation="2.5" flood-opacity="0.18" flood-color="#0F172A"/>
+                  </filter>
+
+                  <!-- 3D Active Tooth Radiant Glow -->
+                  <filter id="toothActiveNeonGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="3" result="blur1"/>
+                    <feGaussianBlur stdDeviation="7" result="blur2"/>
+                    <feMerge>
+                      <feMergeNode in="blur2"/>
+                      <feMergeNode in="blur1"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+
+                  <!-- Realistic Enamel 3D Ceramic Shader (Light Mode) -->
+                  <radialGradient id="enamel3dGrad" cx="35%" cy="30%" r="70%">
+                    <stop offset="0%" stop-color="#FFFFFF"/>
+                    <stop offset="45%" stop-color="#F8FAFC"/>
+                    <stop offset="75%" stop-color="#E9EEF4"/>
+                    <stop offset="100%" stop-color="#D0D9E2"/>
+                  </radialGradient>
+
+                  <!-- Realistic Enamel 3D Ceramic Shader (Dark Mode) -->
+                  <radialGradient id="enamelDark3dGrad" cx="35%" cy="30%" r="70%">
+                    <stop offset="0%" stop-color="#475569"/>
+                    <stop offset="50%" stop-color="#334155"/>
+                    <stop offset="85%" stop-color="#1E293B"/>
+                    <stop offset="100%" stop-color="#0F172A"/>
+                  </radialGradient>
+
+                  <!-- 3D Active Ceramic Shaded Teal Shader -->
+                  <radialGradient id="enamelActive3dGrad" cx="35%" cy="28%" r="72%">
+                    <stop offset="0%" stop-color="#99F6E4"/>
+                    <stop offset="35%" stop-color="#2DD4BF"/>
+                    <stop offset="75%" stop-color="#0D9488"/>
+                    <stop offset="100%" stop-color="#0F766E"/>
+                  </radialGradient>
+
+                  <!-- 3D Alveolar Jawbone / Gum Ridge Track Gradient -->
+                  <linearGradient id="alveolarRidgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="rgba(203, 213, 225, 0.15)"/>
+                    <stop offset="50%" stop-color="rgba(13, 148, 136, 0.12)"/>
+                    <stop offset="100%" stop-color="rgba(203, 213, 225, 0.15)"/>
+                  </linearGradient>
+
+                  <!-- Occlusal Midline Gradient -->
+                  <linearGradient id="teethOcclusalGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="rgba(13, 148, 136, 0.05)"/>
+                    <stop offset="50%" stop-color="rgba(13, 148, 136, 0.55)"/>
+                    <stop offset="100%" stop-color="rgba(13, 148, 136, 0.05)"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- 3D Alveolar Arch Jawbone Base Track (Upper & Lower) -->
+                <path d="M 85 330 C 80 100, 520 100, 515 330 C 470 325, 470 145, 300 145 C 130 145, 130 325, 85 330 Z" fill="url(#alveolarRidgeGrad)" stroke="rgba(203, 213, 225, 0.45)" stroke-width="1.2" class="alveolar-jaw-track"/>
+                <path d="M 85 435 C 80 665, 520 665, 515 435 C 470 440, 470 620, 300 620 C 130 620, 130 440, 85 435 Z" fill="url(#alveolarRidgeGrad)" stroke="rgba(203, 213, 225, 0.45)" stroke-width="1.2" class="alveolar-jaw-track"/>
+
+                <!-- Arch Guide Outlines (Dotted anatomical lines) -->
+                <path d="M 100 325 C 95 120, 505 120, 500 325" fill="none" stroke="rgba(148, 163, 184, 0.35)" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <path d="M 189 320 C 185 200, 415 200, 411 320" fill="none" stroke="rgba(148, 163, 184, 0.25)" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <path d="M 189 440 C 185 560, 415 560, 411 440" fill="none" stroke="rgba(148, 163, 184, 0.25)" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <path d="M 100 447 C 95 650, 505 650, 500 447" fill="none" stroke="rgba(148, 163, 184, 0.35)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+                <!-- Central Dividing Line / Occlusal Midline -->
+                <line x1="50" y1="380" x2="550" y2="380" stroke="url(#teethOcclusalGrad)" stroke-width="2"/>
+                <circle cx="300" cy="380" r="4.5" fill="var(--teal, #0D9488)"/>
+                
+                <!-- Quadrant Labels -->
+                <text x="70" y="365" class="svg-quadrant-tag">UPPER RIGHT (MAXILLARY)</text>
+                <text x="530" y="365" text-anchor="end" class="svg-quadrant-tag">UPPER LEFT (MAXILLARY)</text>
+                <text x="70" y="405" class="svg-quadrant-tag">LOWER RIGHT (MANDIBULAR)</text>
+                <text x="530" y="405" text-anchor="end" class="svg-quadrant-tag">LOWER LEFT (MANDIBULAR)</text>
+                <text x="300" y="373" text-anchor="middle" class="svg-midline-center">OCCLUSAL PLANE &bull; MIDLINE</text>
+
+                <!-- TEETH NODES: Injected dynamically via JavaScript -->
+                <g id="teethNodesGroup" class="teeth-nodes-group"></g>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Bottom Card Footer & Tooltip Status -->
+          <div class="teeth-canvas-bottom">
+            <div class="teeth-interactive-tooltip" id="teethActiveTooltip">
+              <i class="fa-solid fa-hand-pointer"></i> <span id="teethTooltipText">Tap any tooth or select a condition on the right</span>
+            </div>
+            <div class="teeth-active-legend">
+              <span class="legend-dot-glowing"></span> <span id="teethHighlightSummary">All 32 Teeth Normal</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Conditions Column (Matching Reference Visual Layout) -->
+        <div class="teeth-conditions-column">
+          <p class="conditions-lead-text">
+            Our expert dental team specializes in diagnosing and treating a wide range of dental and oral health conditions using advanced technology and evidence-based approaches.
+          </p>
+
+          <div class="conditions-accordion-list" id="conditionsAccordionList" role="tablist" aria-label="Dental Conditions">
+            <!-- 8 Interactive Condition Items will be populated via JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- 5. Comprehensive Clinical Services (Filter Tabs & Clean Key-Point Cards) -->
   <section class="section services-section" id="services">
@@ -800,7 +1057,7 @@
           <span class="reason-index">01</span>
           <div class="reason-icon"><i class="fa-solid fa-microchip"></i></div>
           <h3 class="reason-title">Advanced Technology</h3>
-          <p class="reason-desc">Equipped with digital radiography, diode soft-tissue lasers, micro-rotary endodontic apex units, and HD neuro-radiological review systems.</p>
+          <p class="reason-desc">Equipped with digital X-ray imaging, diode soft-tissue lasers, micro-rotary endodontic apex units, and HD neuro-radiological review systems.</p>
         </div>
 
         <!-- 2. Experienced Doctors -->
@@ -816,7 +1073,7 @@
           <span class="reason-index">03</span>
           <div class="reason-icon"><i class="fa-solid fa-pump-medical"></i></div>
           <h3 class="reason-title">Modern Equipment</h3>
-          <p class="reason-desc">Hospital-grade Class-B autoclaves, German dental operatories, ergonomic micro-surgical suites, and continuous spore monitoring.</p>
+          <p class="reason-desc">Hospital-grade Class-B autoclaves, fully operated dental operatories, ergonomic micro-surgical suites, and continuous spore monitoring.</p>
         </div>
 
         <!-- 4. Minimal Pain Treatment -->
@@ -850,7 +1107,7 @@
   <section class="section facilities-section" id="facilities">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag"><i class="fa-solid fa-building-circle-check"></i> World-Class Infrastructure</span>
+        <span class="section-tag"><i class="fa-solid fa-building-circle-check"></i> Modern Infrastructure</span>
         <h2 class="section-title">Centre Facilities &amp; Gallery</h2>
         <p class="section-desc">
           Engineered for sterile clinical performance and patient serenity. Explore our modern suite in Saraswathipuram.
@@ -861,11 +1118,11 @@
       <div class="facilities-pills-row">
         <div class="facility-chip">
           <i class="fa-solid fa-x-ray facility-chip-icon"></i>
-          <span class="facility-chip-title">Digital Radiography</span>
+          <span class="facility-chip-title">Digital X-Ray</span>
         </div>
         <div class="facility-chip">
           <i class="fa-solid fa-couch facility-chip-icon"></i>
-          <span class="facility-chip-title">German Dental Chairs</span>
+          <span class="facility-chip-title">Fully Operated Dental Chairs</span>
         </div>
         <div class="facility-chip">
           <i class="fa-solid fa-shield-virus facility-chip-icon"></i>
@@ -873,7 +1130,7 @@
         </div>
         <div class="facility-chip">
           <i class="fa-solid fa-bell-concierge facility-chip-icon"></i>
-          <span class="facility-chip-title">Luxury Waiting Lounge</span>
+          <span class="facility-chip-title">Waiting Lounge</span>
         </div>
         <div class="facility-chip">
           <i class="fa-solid fa-square-parking facility-chip-icon"></i>
@@ -887,68 +1144,62 @@
 
       <!-- Real Photo Gallery Grid -->
       <div class="gallery-grid">
-        <!-- Gallery 1: Reception Lounge -->
-        <div class="gallery-card">
+        <!-- Gallery 1: Grand Entrance & Reception Lounge (Wide Hero) -->
+        <div class="gallery-card gallery-card-hero">
           <div class="gallery-img-box">
-            <img src="assets/clinic-interior.jpg" alt="Modern Reception Lounge" class="gallery-img">
+            <img src="assets/g1.png" alt="Grand Entrance & Reception Lounge at Dr. Ahalya Dento Neuro Centre" class="gallery-img" loading="lazy">
+            <span class="gallery-zoom-badge" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
             <div class="gallery-overlay">
-              <div class="gallery-caption">Executive Reception &amp; Lounge</div>
-              <div class="gallery-sub">Calm, welcoming ambiance for patient comfort</div>
+              <div class="gallery-caption">Grand Entrance &amp; Reception Lounge</div>
+              <div class="gallery-sub">Architectural stone archway, ambient lighting &amp; patient welcome foyer</div>
             </div>
           </div>
         </div>
 
-        <!-- Gallery 2: Dental Operatory Chair -->
-        <div class="gallery-card">
+        <!-- Gallery 2: Doctor's Private Consultation Chamber -->
+        <div class="gallery-card gallery-card-consult">
           <div class="gallery-img-box">
-            <img src="assets/dental-chair.jpg" alt="Micro-Endodontic Dental Suite" class="gallery-img">
+            <img src="assets/g2.png" alt="Doctor Consultation Chamber & Examination Couch" class="gallery-img" loading="lazy">
+            <span class="gallery-zoom-badge" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
             <div class="gallery-overlay">
-              <div class="gallery-caption">Micro-Endodontic Dental Operatory</div>
-              <div class="gallery-sub">Ergonomic patient station with rotary instruments</div>
+              <div class="gallery-caption">Private Consultation &amp; Examination Suite</div>
+              <div class="gallery-sub">Spine anatomical review desk &amp; patient clinical examination bed</div>
             </div>
           </div>
         </div>
 
-        <!-- Gallery 3: Class-B Autoclave Sterilization Suite -->
-        <div class="gallery-card">
+        <!-- Gallery 3: FDI Dental Chart Wall & Operatory Corridor -->
+        <div class="gallery-card gallery-card-fdi">
           <div class="gallery-img-box">
-            <img src="assets/sterilization.jpg" alt="Class-B Sterilization Suite" class="gallery-img">
+            <img src="assets/g3.png" alt="FDI Dental Chart Wall Art & Warm Chandelier" class="gallery-img" loading="lazy">
+            <span class="gallery-zoom-badge" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
             <div class="gallery-overlay">
-              <div class="gallery-caption">Hospital-Grade Sterilization Suite</div>
-              <div class="gallery-sub">4-tier vacuum autoclave sterilization protocol</div>
+              <div class="gallery-caption">FDI Dental Wall &amp; Treatment Corridor</div>
+              <div class="gallery-sub">Patient educational notation art with warm pendant lighting</div>
             </div>
           </div>
         </div>
 
-        <!-- Gallery 4: Digital Radiography & CBCT -->
-        <div class="gallery-card">
+        <!-- Gallery 4: Advanced Dual Dental Operatory Suite -->
+        <div class="gallery-card gallery-card-operatory-1">
           <div class="gallery-img-box">
-            <img src="assets/digital-xray.jpg" alt="Digital CBCT Radiography Room" class="gallery-img">
+            <img src="assets/g4.png" alt="Advanced Dual Dental Operatory Suite" class="gallery-img" loading="lazy">
+            <span class="gallery-zoom-badge" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
             <div class="gallery-overlay">
-              <div class="gallery-caption">Digital 3D CBCT Radiography</div>
-              <div class="gallery-sub">Low-dose, ultra-high resolution dental scans</div>
+              <div class="gallery-caption">Advanced Dental Operatory Suite</div>
+              <div class="gallery-sub">Motorized ergonomic stations with ceiling 3D education display</div>
             </div>
           </div>
         </div>
 
-        <!-- Gallery 5: Neurosurgery Consultation Console -->
-        <div class="gallery-card">
+        <!-- Gallery 5: Motorized Operatory Chair & Digital Cart -->
+        <div class="gallery-card gallery-card-operatory-2">
           <div class="gallery-img-box">
-            <img src="assets/neuro-suite.jpg" alt="Neurosurgery Diagnostics Suite" class="gallery-img">
+            <img src="assets/g5.png" alt="Fully Motorized Dental Chair & Digital Imaging Console" class="gallery-img" loading="lazy">
+            <span class="gallery-zoom-badge" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
             <div class="gallery-overlay">
-              <div class="gallery-caption">Neurosurgery &amp; MRI Review Suite</div>
-              <div class="gallery-sub">Digital brain &amp; spine scan correlation console</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Gallery 6: Consultation Chambers -->
-        <div class="gallery-card">
-          <div class="gallery-img-box">
-            <img src="assets/clinic-interior.jpg" alt="Private Consultation Chambers" class="gallery-img">
-            <div class="gallery-overlay">
-              <div class="gallery-caption">Private Consultation Chambers</div>
-              <div class="gallery-sub">Confidential, quiet patient-doctor dialogue</div>
+              <div class="gallery-caption">Motorized Operatory &amp; Digital Workstation</div>
+              <div class="gallery-sub">Precision rotary instruments, mobile digital imaging &amp; ergonomic chairs</div>
             </div>
           </div>
         </div>
